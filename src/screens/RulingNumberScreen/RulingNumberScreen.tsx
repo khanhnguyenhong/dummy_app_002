@@ -4,7 +4,7 @@ import {
   rulingNumberDb,
   RulingNumberDescriptionInterface,
   RulingNumberInterface,
-} from '../../db/rulingNumberDB';
+} from '../../db/rulingNumberDB';
 
 type Props = {
   route: any;

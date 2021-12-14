@@ -1,4 +1,4 @@
-import {DescriptionTypeEnum} from '../constants/\bgeneralEnums';
+import { DescriptionTypeEnum } from "../constants/generalEnums";
 
 export class Description {
   id: number;
