@@ -2,9 +2,8 @@ import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
   rulingNumberDb,
-  RulingNumberDescriptionInterface,
-  RulingNumberInterface,
-} from '../../db/rulingNumberDB';
+  RulingNumberDescriptionInterface
+} from '../../db/rNumberDB';
 
 type Props = {
   route: any;
