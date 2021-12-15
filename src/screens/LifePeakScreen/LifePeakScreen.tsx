@@ -15,12 +15,17 @@ const LifePeakScreen: React.FC<Props> = props => {
       <ScrollView>
         {lifePeaks.map(lp => (
           <View style={styles.mt_20} key={lp.age}>
-            <Text style={styles.h2}>{lp.age} tuổi: số {lp.number}</Text>
+            <Text style={styles.h2}>
+              {lp.age} tuổi: số {lp.number}
+            </Text>
             {lp.descriptions.map(d => (
-              <Text key={d.id} style={styles.content}>{d.content}</Text>
+              <Text key={d.id} style={styles.content}>
+                {d.content}
+              </Text>
             ))}
           </View>
         ))}
+        <View style={styles.mt_20}></View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -33,12 +38,12 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   type: {
-    fontSize: 18,
+    fontSize: 20,
     alignSelf: 'center',
     marginBottom: 7,
   },
   content: {
-    fontSize: 14,
+    fontSize: 18,
     paddingLeft: 14,
     paddingRight: 14,
   },

@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button, ScrollView, SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
 import BirthChart from '../../components/BirthChart';
 import SpecialNumberService from '../../services/SpecialNumberService';
 
@@ -9,12 +16,12 @@ type Props = {
 };
 
 const DefinitionScreen: React.FC<Props> = props => {
-  const dateString = props.route.params.dateString;
+  const dateString = props.route.params.dateString || '19/04/1993';
   const dateArr = props.route.params.dateArr;
   const nameNumbers: string[] = ['', '', '', '', '', '', '', '', '', ''];
   const birthNumbers: string[] = ['', '', '', '', '', '', '', '', '', ''];
   const rulingNumber = SpecialNumberService.calculateRulingNumber(
-    dateString.replaceAll('/', ''),
+    dateString.split('/').join(''),
   );
   const lifePeaks = SpecialNumberService.constructLifePeaks(
     dateArr[0],
@@ -52,18 +59,20 @@ const DefinitionScreen: React.FC<Props> = props => {
           </View>
           <Text style={[styles.mt_20, styles.h2]}>4 đỉnh cao</Text>
           {lifePeaks.map(lp => (
-            <Text key={lp.age}>
+            <Text style={styles.h4} key={lp.age}>
               {lp.age} tuổi: số {lp.number}
             </Text>
           ))}
-          <Button
-            title="Xem ý nghĩa các đỉnh"
-            onPress={() =>
-              navigation.navigate('LifePeak', {
-                lifePeaks: lifePeaks,
-              })
-            }
-          />
+          <View style={[styles.mb_40, styles.mt_20]}>
+            <Button
+              title="Xem ý nghĩa các đỉnh"
+              onPress={() =>
+                navigation.navigate('LifePeak', {
+                  lifePeaks: lifePeaks,
+                })
+              }
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -85,7 +94,7 @@ const styles = StyleSheet.create({
   },
   birthChart: {
     height: 150,
-    width: '75%'
+    width: '75%',
   },
   mt_20: {
     marginTop: 20,
@@ -93,10 +102,19 @@ const styles = StyleSheet.create({
   mb_20: {
     marginBottom: 20,
   },
+  mb_40: {
+    marginBottom: 40,
+  },
   h2: {
     fontSize: 24,
     alignSelf: 'center',
     marginBottom: 14,
+  },
+  h3: {
+    fontSize: 20,
+  },
+  h4: {
+    fontSize: 16,
   },
 });
 

@@ -71,7 +71,7 @@ class DataInputScreen extends React.Component<MyProps, MyState> {
           placeholder="dd/mm/yyyy"
           onChangeText={text => this.convertTextToDob(text)}
         />
-        <Text>{this.state.resultText}</Text>
+        <Text style={styles.resultText}>{this.state.resultText}</Text>
         {this.state.isValidDate && (
           <Button
             title="Xem ý nghĩa"
@@ -90,9 +90,12 @@ class DataInputScreen extends React.Component<MyProps, MyState> {
 
 const styles = StyleSheet.create({
   container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+  resultText: {
+    marginBottom: 20,
+    fontSize: 16,
+  },
   input: {
     fontSize: 42,
-    height: 50,
   },
 });
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
   rulingNumberDb,
-  RulingNumberDescriptionInterface
+  RulingNumberDescriptionInterface,
 } from '../../db/rNumberDB';
 
 type Props = {
@@ -40,6 +40,7 @@ const RulingNumberScreen: React.FC<Props> = props => {
             <Text style={styles.content}>{d.content}</Text>
           </View>
         ))}
+        <View style={styles.mt_20}></View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -47,12 +48,12 @@ const RulingNumberScreen: React.FC<Props> = props => {
 
 const styles = StyleSheet.create({
   type: {
-    fontSize: 18,
+    fontSize: 20,
     alignSelf: 'center',
     marginBottom: 7,
   },
   content: {
-    fontSize: 14,
+    fontSize: 18,
     paddingLeft: 14,
     paddingRight: 14,
   },
